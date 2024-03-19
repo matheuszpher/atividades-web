@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Pai from "./components/atividade01/questao01/01Pai";
+import * as PC from "./components/atividade01/questao02/02MeuPC";
+import * as BTL from "./components/atividade01/questao03/03Batalha";
+import "C:/Users/Matheus Rodrigues/OneDrive/Área de Trabalho/Atividades/WEB/atividades/src/components/atividade01/style.css"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Atividade 01 - Desenvolvimento de Software para a WEB</h1>
+      <hr />
+      <h1>Questão 01:</h1>
+      <Pai />
+      <hr />
+      <h1>Questão 02:</h1>
+      <h2>Meu computador</h2>
+      <PC.PlacaMae
+        nome="Modelo Z"
+        preco={1100}
+      />
+      <PC.Memoria
+        nome="8GB DDR4"
+        preco={180.00}
+      />
+      <PC.PlacaDeVideo
+        nome="NVIDIA GeForce RTX 3050"
+        preco={1200}
+      />
+      <hr />
+      <h1>Questão 03:</h1>
+      <BTL.World
+        arena="Tokio Dome – Underground Arena"
+      />
     </div>
   );
 }
