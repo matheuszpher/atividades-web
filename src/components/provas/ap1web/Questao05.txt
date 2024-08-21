@@ -1,0 +1,30 @@
+Props Drilling ocorre quando dados precisam ser passados por múltiplos componentes intermediários que não usam esses dados, tornando
+ o código complexo. Exemplo:
+
+ function App() {
+  const user = { name: "John" };
+  return <ComponentA user={user} />;
+}
+function ComponentA({ user }) { return <ComponentB user={user} />; }
+function ComponentB({ user }) { return <ComponentC user={user} />; }
+function ComponentC({ user }) { return <div>{user.name}</div>; }
+
+Context API resolve isso permitindo que dados sejam acessados diretamente por qualquer componente, sem precisar passar por
+ todos os níveis intermediários. Exemplo: 
+
+ const UserContext = createContext();
+function App() {
+  const user = { name: "John" };
+  return (
+    <UserContext.Provider value={user}>
+      <ComponentA />
+    </UserContext.Provider>
+  );
+}
+
+// ComponentC acessa diretamente os dados do UserContext, eliminando o props drilling.
+
+function ComponentC() {
+  const user = useContext(UserContext);
+  return <div>{user.name}</div>;
+}
